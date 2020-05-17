@@ -1,4 +1,4 @@
-Django Online Examination Project
+<b>Django Online Examination Project</b>
 ===============
 Project Created By,
  
@@ -19,29 +19,32 @@ Pillow
 
 <b>Installation</b>
 ------------
-1) Install virtualEvn using pip install virtualenv
-2) Make virtualEvn using virtualenv <name>
-3) Download oequiz.zip and unzip it.
-4) Use `pip install -r requirement.txt` to install necessary package for requirement.txt
-5) Go to your CMD and run `django-admin startproject Online Exam` .
-6) Add `'quiz', 'multichoice', 'true_false', 'essay'` to your `INSTALLED_APPS`  in `setting.py` File.
+- This project requires postgre SQL as Database and pgAdmin as management tool. 
+- Create Database using pgAdmin according to <b>setting.py</b>
+- Run this project in virtual environment. 
 
-    INSTALLED_APPS = (
-        ...
-        'quiz',
-        'multichoice',
-        'true_false',
-		'essay',
-        ...
-    )
 
-7) Add the following to your projects `urls.py` file, substituting `q` for whatever you want the quiz base url to be.
+Install necessary packages.
+```sh
+pip install -r requirement.txt
+```
+Migrate models.
+```sh
+python manage.py makemigrations
+pyhton manage.py migrate
+```
+Set Django-admin User.
+```sh
+python manage.py createsuperuser
+```
+Run server.
+```sh 
+python manage.py runserver 
+```
 
-    urlpatterns = patterns('',
-        ...
-        url(r'^q/', include('quiz.urls')),
-    	...
-    )
+
+
+
 
 
 
