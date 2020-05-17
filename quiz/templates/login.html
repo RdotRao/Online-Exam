@@ -1,0 +1,27 @@
+{%extends 'baselog.html'%} {%load static %} {% block content %}
+
+<head>
+    <title>{%block title %}Online Exam | Login{%endblock%}</title>
+</head>
+<div class="login-page">
+    <div class="form">
+        <center><img src="{%static 'ICT NEW LOGO.jpg' %}" alt="Ganpat University" width="320px "></center>
+        <form class="login-form" action="" method="POST">
+            {% csrf_token %}
+            <input type="textbox" name="userid" placeholder="Username">
+            <input type="password" name="password" placeholder="Password"><br/>
+            {% if messages %}
+            {% for message in messages %}
+                <div>
+                    <strong>{{message|safe}}</strong>
+                </div>
+            {% endfor %}
+            {% endif %}
+            <br>
+            <input type="submit" class="ab" value="Login">
+    
+
+        </form>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,46 @@
+{% extends 'studentbase.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "My Profile" %}{% endblock %}
+<head>
+    <style>
+        table, th, td {
+           border: 1px solid black;
+        }
+     </style>
+</head>
+<body>
+{%block content%}
+<div class="container">
+        <b><h4>
+        <table> 
+        <tr>
+            <td style="padding:10px">Username</td>
+            <td>:</td>
+            <td style="padding:10px">{{user.username}}</td>
+        </tr>
+        <tr>
+            <td style="padding:10px">First Name</td>
+            <td>:</td>
+            <td style="padding:10px">{{user.first_name}}</td>
+        </tr>
+        <tr>
+            <td style="padding:10px">Last Name</td>
+            <td>:</td>
+            <td style="padding:10px">{{user.last_name}}</td>
+        </tr>
+        <tr>
+            <td style="padding:10px">Email ID</td>
+            <td>:</td>
+            <td style="padding:10px">{{user.email}}</td>
+        </tr>
+
+        </table>
+        <br>
+        <br>
+        If You Want to Change Password <a href="{% url 'change_password' %}"> Click Me </a>.
+        
+    </b></h4>
+</div>
+{% endblock %}
+</body>

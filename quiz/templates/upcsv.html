@@ -1,0 +1,55 @@
+{% extends 'facultybase.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload CSV</title>
+    <style>
+        table, th, td {
+           border: 1px solid black;
+        }
+     </style>
+</head>
+{% block content %}
+<body>
+<center>
+    
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table align="center">
+        <tr >
+            <th style="padding:10px"><h1>Add Student Details Via CSV Format</h1></th>
+        </tr>
+        <tr>
+            <th style="padding:10px"> <label for="file1"> Upload a file</label>(<small>Only accepts CSV files</small>)</th>
+        </tr>
+
+        <tr >
+            <td style="padding:10px"><input type="file" id="file1" name="file" accept=".csv" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding:10px">
+                {% if messages %}
+                {% for message in messages %}
+                    <div>
+                        <strong>{{message|safe}}</strong>
+                    </div>
+                {% endfor %}
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td style="padding:10px"><button type="submit">Upload</button></td>
+        </tr>
+        <tr>
+        <td colspan="2" style="padding:10px">{{order}}</td>
+    </tr>
+        </table>
+    </form>
+    {% for profile in profiles %}
+    {{profile.name}}
+    {% endfor %}
+</center>
+</body>
+{% endblock %}
+</html>

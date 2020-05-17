@@ -1,0 +1,13 @@
+{% extends 'facultybase.html' %}
+{% load i18n %}
+{% block title %}{% trans "Create Stream of Exams" %}{% endblock %}
+{%block content%}
+<center>
+    <form class="" action="" method="POST" style="padding: 15px; margin: 15px;">
+        {% csrf_token %}
+        <input type="textbox" name="category" placeholder="Category Name" required><br/><br/>
+        <br/><br/>
+        <input type="submit"  name="" value="Submit">
+    </form>
+</center>
+{% endblock %}
